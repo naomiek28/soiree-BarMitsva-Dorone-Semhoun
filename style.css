@@ -1,0 +1,1265 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap");
+:root{--gold:#d5aa50;--light:#f4dc9c;--ivory:#f7eedf;--line:rgba(222,180,83,.34)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:#030303}body{margin:0;min-height:100%;overflow-x:hidden;background:transparent;color:var(--ivory);font-family:Montserrat,sans-serif;font-weight:300}body.is-loading,body.welcome-visible{overflow:hidden}img{display:block;max-width:100%}p,h1,h2,h3{margin-top:0}a{color:inherit}
+
+.loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;width:100%;height:100svh;background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.18)),url("rideaux-dorone.png") center/cover no-repeat;transition:opacity .8s,visibility .8s}.loader-inner{width:min(56vw,215px);text-align:center}.loader img{width:100%;opacity:.26;filter:grayscale(.65) brightness(.65);animation:logoLoad 3.2s ease forwards}.progress{width:125px;height:1px;margin:28px auto 0;background:rgba(231,193,103,.23);overflow:hidden}.progress i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#98691d,#f5dd99);transform-origin:left;animation:progress 3.2s ease forwards}.loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
+.welcome{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;width:100%;height:100svh;padding:28px;opacity:0;visibility:hidden;pointer-events:none;background:linear-gradient(rgba(0,0,0,.07),rgba(0,0,0,.22)),url("rideaux-dorone.png") center/cover no-repeat;transition:.8s}.welcome-visible .welcome{opacity:1;visibility:visible;pointer-events:auto}.welcome-inner{width:min(90%,430px);text-align:center}.welcome img{width:min(42vw,185px);margin:0 auto 25px;filter:drop-shadow(0 0 24px rgba(220,178,80,.25))}.caps{margin-bottom:4px;color:var(--light);font-size:10px;letter-spacing:.3em;text-transform:uppercase}.welcome h1,.dorone{margin:0;color:transparent;background:linear-gradient(110deg,#956419,#ffe4a0 40%,#bc8125 70%,#f5d688);-webkit-background-clip:text;background-clip:text;font-family:"Cormorant Garamond",serif;font-size:clamp(82px,25vw,128px);font-weight:400;line-height:.86;letter-spacing:-.05em}.subtitle,.full-name{margin:14px 0 25px;color:var(--light);font-family:"Cormorant Garamond",serif;font-size:21px;font-style:italic}.welcome button{padding:14px 23px;border:1px solid rgba(238,197,101,.62);color:var(--ivory);background:rgba(0,0,0,.38);font-family:"Cormorant Garamond",serif;font-size:17px;font-style:italic;cursor:pointer;backdrop-filter:blur(5px)}.welcome button b{margin-left:10px;color:var(--gold)}
+.invitation{position:relative;z-index:2;display:none;width:100%;opacity:0;background:transparent}.invitation-open .invitation{display:block;animation:appear 1s ease forwards}.invitation-open .welcome{display:none!important}
+.tefilines-section,.event-section{width:min(100%,740px);margin:auto;padding:70px 18px 95px}.paper,.event-card{position:relative;border:1px solid rgba(224,182,84,.37);background:linear-gradient(145deg,rgba(0,0,0,.56),rgba(25,17,7,.48));box-shadow:0 34px 82px rgba(0,0,0,.46);backdrop-filter:blur(4px)}.paper{padding:clamp(38px,9vw,68px) clamp(16px,6vw,52px);text-align:center}.main-logo{width:clamp(118px,34vw,180px);margin:0 auto 42px;filter:drop-shadow(0 0 24px rgba(220,178,80,.25))}
+.grandparents{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);align-items:center;gap:20px;margin-bottom:48px}.grandparents>i{width:1px;height:74px;background:linear-gradient(transparent,rgba(240,199,103,.7),transparent)}.side p{margin:5px 0;color:#ecdfcb;font-family:"Cormorant Garamond",serif;font-size:clamp(14px,4vw,19px);font-style:italic;line-height:1.35}.side small{display:block;margin-bottom:13px;color:var(--gold);font-size:7px;letter-spacing:.16em;text-transform:uppercase}.left{text-align:left}.right{text-align:right}.close-family{margin-bottom:28px;color:#dacdb9;font-family:"Cormorant Garamond",serif;font-size:18px;font-style:italic}.close-family p{margin:5px}.close-family .parents{color:#f4e8d5;font-size:clamp(22px,6vw,29px);font-style:normal;font-weight:500}.announcement{max-width:510px;margin:0 auto 20px;color:#eadfcd;font-family:"Cormorant Garamond",serif;font-size:clamp(18px,5vw,23px);line-height:1.45}.full-name{margin-bottom:17px;font-size:clamp(21px,6vw,29px)}.sentence,.date{margin:4px 0;color:#f0e4d2;font-family:"Cormorant Garamond",serif;font-size:clamp(18px,5vw,24px)}.rule{width:62px;height:1px;margin:28px auto 23px;background:linear-gradient(90deg,transparent,var(--light),transparent)}.at{margin-bottom:2px;color:#cfc1ac;font-family:"Cormorant Garamond",serif;font-style:italic}.paper h3,.event-card h3{margin:0 0 9px;color:var(--light);font-family:"Cormorant Garamond",serif;font-size:clamp(23px,6.5vw,31px);font-weight:500}address{color:#d0c2ad;font-size:10px;font-style:normal;line-height:1.8}.routes{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}.routes a{min-width:135px;padding:13px;border:1px solid rgba(225,183,86,.5);background:rgba(0,0,0,.27);font-size:9px;letter-spacing:.1em;text-decoration:none;text-transform:uppercase}.note{max-width:430px;margin:34px auto 0;padding-top:23px;border-top:1px solid rgba(220,178,80,.2);color:#d4c6b0;font-family:"Cormorant Garamond",serif;font-size:18px;font-style:italic;line-height:1.5;text-align:left}
+.section-label{display:flex;align-items:center;gap:13px;margin-bottom:30px}.section-label span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line))}.section-label span:last-child{background:linear-gradient(90deg,var(--line),transparent)}.section-label p{margin:0;color:var(--light);font-size:9px;letter-spacing:.2em;text-transform:uppercase}.event-card{padding:clamp(46px,10vw,68px) clamp(20px,6vw,52px);text-align:center}.event-card h2{margin:0;color:var(--ivory);font-family:"Cormorant Garamond",serif;font-size:clamp(55px,16vw,80px);font-weight:400;line-height:.95}.event-date{margin-bottom:18px;color:var(--light);font-size:10px;letter-spacing:.13em;text-transform:uppercase}.gold-text{margin:21px 0 30px;color:var(--light);font-family:"Cormorant Garamond",serif;font-size:23px}.pending{width:fit-content;margin:auto;padding:20px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.pending p{margin:6px;color:#d1c3ae;font-size:10px}
+.film-break{position:relative;z-index:3;display:grid;place-items:center;min-height:78svh;overflow:hidden}.film-break>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}.film-break>span{position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.15) 45%,rgba(0,0,0,.86))}.film-content{text-align:center}.film-content img{width:min(45vw,215px);margin:auto}.film-content p{color:#f0e4d0;font-family:"Cormorant Garamond",serif;font-size:28px;font-style:italic}
+footer{position:relative;z-index:2;padding:75px 20px 50px;border-top:1px solid rgba(220,178,80,.18);background:rgba(0,0,0,.43);text-align:center}footer img{width:92px;margin:auto}footer p{margin:10px 0;color:var(--light);font-family:"Cormorant Garamond",serif;font-size:37px;font-style:italic}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}.reveal.visible{opacity:1;transform:none}
+@keyframes logoLoad{0%{opacity:.25;filter:grayscale(.7) brightness(.58);transform:scale(.98)}75%,100%{opacity:1;filter:grayscale(0) brightness(1.06) drop-shadow(0 0 20px rgba(245,208,118,.3));transform:scale(1)}}@keyframes progress{to{transform:scaleX(1)}}@keyframes appear{to{opacity:1}}
+@media(max-width:600px){.grandparents{gap:12px}.side p{font-size:14px}.side small{font-size:6px;letter-spacing:.1em}.routes{flex-direction:column;align-items:center}.routes a{width:min(100%,225px)}}
+@media(min-width:900px){.loader,.welcome,.invitation{left:50%;width:620px;transform:translateX(-50%)}}
+
+/* Texte central de la section Chabbat */
+.pending.chabbat-message{width:min(100%,470px);padding:27px 22px}
+.pending.chabbat-message>p:first-child{margin:0 auto 18px;color:#eadfcd;font-family:"Cormorant Garamond",serif;font-size:clamp(18px,5vw,22px);font-style:italic;line-height:1.55;text-align:center}
+.pending .chabbat-dates{margin:0 0 5px;color:var(--light);font-family:"Cormorant Garamond",serif;font-size:17px;letter-spacing:.02em;text-align:center}
+.pending .chabbat-hebrew-date{margin:0;color:#d7c9b4;font-family:serif;font-size:17px;line-height:1.5;text-align:center}
+.pending.evening-message{margin:27px auto 30px}
+.pending .evening-time{margin:7px 0 0;color:#d7c9b4;font-family:"Cormorant Garamond",serif;font-size:17px;font-style:italic;text-align:center}
+
+/* Keep both portrait images fully visible in every browser viewport. */
+
+
+.loader,.welcome{height:100vh;height:100dvh;background-color:#030303;background-position:center;background-size:contain}
+
+/* Family and tefilines invitation. */
+.grandparents{align-items:stretch;gap:clamp(10px,3vw,28px);margin-bottom:clamp(36px,8vw,58px)}
+.grandparents>i{height:auto;min-height:80px;align-self:stretch}
+.side{display:flex;flex-direction:column;justify-content:center;min-width:0;text-align:center}
+.side p{margin:4px 0;font-size:clamp(15px,3.8vw,20px);line-height:1.35}
+.close-family{margin-bottom:30px}
+.announcement{max-width:430px;margin-bottom:24px}
+.paper .full-name{margin:10px 0 4px}
+.hebrew-name{margin:0 0 27px;color:#e1cfaa;font-family:serif;font-size:clamp(17px,4.5vw,23px);line-height:1.4}
+.paper .sentence{margin:0 0 12px;color:#eadfcd;font-style:italic}
+.paper .date{margin:0;color:var(--light);font-size:clamp(17px,4.5vw,23px);line-height:1.4}
+
+/* One clear hierarchy for each event card. */
+.event-section{padding-top:clamp(42px,8vw,72px)}
+.event-card{padding:clamp(45px,9vw,70px) clamp(22px,6vw,54px)}
+.event-date{margin-bottom:20px;color:var(--gold);line-height:1.5}
+.event-card h2{margin-bottom:0}
+.event-card .gold-text{margin:21px 0 0;color:#d9b76e;font-size:clamp(21px,5.5vw,26px);line-height:1.3}
+.event-rule{width:min(190px,55%);height:1px;margin:32px auto;background:var(--line)}
+.event-message{max-width:460px;margin:0 auto;color:#eadfcd;font-family:"Cormorant Garamond",serif;font-size:clamp(21px,5.3vw,26px);font-style:italic;line-height:1.42}
+.kiddouch{margin:34px auto 0;color:#d9b76e;font-family:"Cormorant Garamond",serif;font-size:clamp(19px,5vw,23px);line-height:1.4}
+#soiree .evening-message{margin:29px auto 34px}
+#soiree h3{margin:0 0 9px;font-size:clamp(27px,7vw,36px)}
+#soiree address{font-size:clamp(12px,3vw,14px);line-height:1.65}
+#soiree .routes{gap:8px;margin-top:24px}
+#soiree .routes a{min-width:125px;padding:12px 16px;border-color:rgba(225,183,86,.42);font-size:10px;transition:background .2s,border-color .2s}
+#soiree .routes a:hover,#soiree .routes a:focus-visible{background:rgba(213,170,80,.12);border-color:var(--gold)}
+
+@media(max-width:600px){
+  .grandparents{gap:12px}
+  .side p{font-size:clamp(14px,3.8vw,17px)}
+  #soiree .routes{flex-direction:row;gap:8px}
+  #soiree .routes a{width:auto;min-width:0;flex:1;max-width:160px}
+}
+
+/* =========================================================
+   REGLAGE DEFINITIF : AUCUNE ANIMATION DANS L'INVITATION
+   Seul le nom hebreu conserve son ecriture lettre par lettre.
+   ========================================================= */
+
+.invitation,
+.invitation-open .invitation,
+.reveal,
+.reveal.visible,
+.paper,
+.paper.visible,
+.event-card,
+.event-card.visible,
+.rsvp-card,
+.rsvp-card.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.paper > *:not(.hebrew-name),
+.paper.visible > *:not(.hebrew-name),
+.event-card > *,
+.event-card.visible > *,
+.rsvp-card > *,
+.rsvp-card.visible > *,
+.dorone,
+.paper .dorone,
+.paper.visible .dorone {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  animation: none !important;
+  animation-delay: 0s !important;
+}
+
+.hebrew-name {
+  display: flex !important;
+  direction: rtl;
+  justify-content: center;
+  align-items: center;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.hebrew-name span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(8px) scale(.9);
+  filter: blur(3px);
+}
+
+.paper.visible .hebrew-name span {
+  animation: hebrewLetterWrite .46s cubic-bezier(.22, 1, .36, 1) var(--letter-delay) forwards !important;
+}
+
+/* Crédit discret en bas du faire-part */
+.creator-credit {
+  width: min(100%, 390px);
+  margin: 34px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(222, 180, 83, .2);
+  color: rgba(235, 217, 184, .72);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: .035em;
+}
+
+.creator-credit span,
+.creator-credit a {
+  display: block;
+}
+
+.creator-credit a {
+  width: fit-content;
+  min-height: 44px;
+  margin: 4px auto 0;
+  padding: 10px 8px;
+  color: #dabb70;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.creator-credit a:hover,
+.creator-credit a:focus-visible {
+  color: #fff0bf;
+}
+
+.creator-credit a:focus-visible {
+  outline: 1px solid rgba(222, 180, 83, .7);
+  outline-offset: 2px;
+}
+
+/* Nouveau RSVP : événements, adultes et enfants */
+.attendance-list {
+  margin: 28px 0 20px !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.attendance-list > legend {
+  width: 100%;
+  margin-bottom: 14px !important;
+  color: #e6ca7b !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px !important;
+  font-weight: 500;
+  letter-spacing: .04em !important;
+  text-align: center;
+  text-transform: none !important;
+}
+
+.attendance-event {
+  margin-bottom: 12px;
+  padding: 4px 13px 13px;
+  border: 1px solid rgba(222, 180, 83, .22);
+  background: rgba(0, 0, 0, .2);
+}
+
+.event-choice {
+  width: 100%;
+  border-bottom: 0 !important;
+}
+
+.event-choice > span {
+  display: block;
+  min-width: 0;
+}
+
+.event-choice strong,
+.event-choice small {
+  display: block;
+}
+
+.event-choice strong {
+  color: #f0dfb8;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.event-choice small {
+  margin-top: 3px;
+  color: #cbbda8;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.guest-counts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 5px 0 2px 29px;
+}
+
+.guest-counts[hidden] {
+  display: none !important;
+}
+
+.mini-field {
+  display: block;
+  text-align: left;
+}
+
+.mini-field span {
+  display: block;
+  margin-bottom: 6px;
+  color: #d9c58d;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.mini-field input {
+  width: 100%;
+  min-height: 45px;
+  padding: 9px 10px;
+  border: 1px solid rgba(225, 183, 86, .35);
+  outline: 0;
+  background: rgba(0, 0, 0, .34);
+  color: #fff6e5;
+  font: 17px "Cormorant Garamond", serif;
+  text-align: center;
+}
+
+.mini-field input:focus {
+  border-color: var(--gold);
+}
+
+.absence-choice {
+  margin: 18px 0 25px !important;
+  padding: 13px !important;
+  border: 1px solid rgba(222, 180, 83, .3) !important;
+  color: #e7d7bd !important;
+  background: rgba(0, 0, 0, .22);
+}
+
+@media (max-width: 430px) {
+  .attendance-event {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .guest-counts {
+    padding-left: 28px;
+  }
+}
+
+/* Réponses distinctes pour chaque événement */
+.event-response {
+  margin: 25px 0 !important;
+  padding: 20px 0 6px !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(222, 180, 83, .28) !important;
+}
+
+.event-response legend {
+  width: 100%;
+  margin-bottom: 10px !important;
+  color: #e6ca7b !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px !important;
+  font-weight: 600;
+  letter-spacing: .04em !important;
+  text-align: center;
+  text-transform: none !important;
+}
+
+.event-response .choice {
+  align-items: center;
+  min-height: 46px;
+}
+
+.event-response .choice input[type="radio"] {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--gold);
+}
+
+.attendance-count {
+  margin: 14px 0 5px !important;
+  padding-left: 29px;
+}
+
+.attendance-count[hidden] {
+  display: none !important;
+}
+
+.submit-rsvp:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+/* =========================================================
+   CENTRAGE EXACT DES CADRES SUR LE BACKGROUND
+   ========================================================= */
+
+body.invitation-open .invitation {
+  left: auto !important;
+  right: auto !important;
+  width: min(100%, 620px) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  transform: none !important;
+}
+
+body.invitation-open .tefilines-section,
+body.invitation-open .event-section,
+body.invitation-open .rsvp-section {
+  width: 100% !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
+}
+
+body.invitation-open .paper,
+body.invitation-open .event-card,
+body.invitation-open .rsvp-card {
+  width: 100% !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* =========================================================
+   UNE SEULE ANIMATION CHIC POUR LE RESTE DU CONTENU
+   L'hebreu est volontairement exclu.
+   ========================================================= */
+
+body.motion-ready .reveal {
+  opacity: 0 !important;
+  transform: translate3d(0, 18px, 0) !important;
+  transition:
+    opacity .9s cubic-bezier(.22, 1, .36, 1),
+    transform .9s cubic-bezier(.22, 1, .36, 1) !important;
+  animation: none !important;
+}
+
+body.motion-ready .reveal.visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+body.motion-ready .paper > *:not(.hebrew-name),
+body.motion-ready .event-card > *,
+body.motion-ready .rsvp-card > * {
+  opacity: 0 !important;
+  transform: translate3d(0, 8px, 0) !important;
+  filter: none !important;
+  clip-path: none !important;
+  animation: none !important;
+  transition:
+    opacity .8s cubic-bezier(.22, 1, .36, 1),
+    transform .8s cubic-bezier(.22, 1, .36, 1) !important;
+  transition-delay: var(--item-delay, .1s) !important;
+}
+
+body.motion-ready .paper.visible > *:not(.hebrew-name),
+body.motion-ready .event-card.visible > *,
+body.motion-ready .rsvp-card.visible > * {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+body.motion-ready .hebrew-name {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+body.motion-ready .paper.visible .hebrew-name span {
+  animation: hebrewLetterWrite .46s cubic-bezier(.22, 1, .36, 1) var(--letter-delay) forwards !important;
+}
+
+/* Bouton musical fixe pendant tout le defilement. */
+.music-toggle {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, calc((100vw - 620px) / 2 + 16px));
+  z-index: 7000;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(231, 193, 103, .62);
+  border-radius: 50%;
+  color: #f2d27d;
+  background: rgba(8, 7, 5, .72);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .35s ease, border-color .25s ease, background .25s ease;
+}
+
+.invitation-open .music-toggle {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.music-toggle:active { transform: scale(.96); }
+
+.music-icon {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.music-toggle.is-paused {
+  color: rgba(242, 210, 125, .55);
+  border-color: rgba(231, 193, 103, .3);
+  background: rgba(8, 7, 5, .58);
+}
+
+.music-toggle.is-paused::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background: currentColor;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 620px) {
+  .music-toggle {
+    top: max(14px, env(safe-area-inset-top));
+    right: 14px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Cadre souvenir pour la future photo de Papy. */
+.memorial-section {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 0 18px 95px;
+}
+
+.memorial-card {
+  width: min(72vw, 290px);
+  margin: 0 auto;
+  padding: 9px;
+  border: 1px solid rgba(231, 193, 103, .65);
+  background: rgba(7, 6, 4, .72);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, .38),
+    inset 0 0 0 3px rgba(231, 193, 103, .08);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.memorial-photo-placeholder {
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  border: 1px solid rgba(231, 193, 103, .32);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(205, 157, 61, .12), transparent 48%),
+    linear-gradient(145deg, rgba(22, 17, 9, .9), rgba(5, 5, 4, .96));
+  text-align: center;
+}
+
+.memorial-photo-placeholder span {
+  color: #dfc27b;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 5vw, 27px);
+  font-style: italic;
+  letter-spacing: .025em;
+}
+
+.memorial-photo-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Grand hommage photo à Papy Maurice. */
+.memorial-card {
+  width: min(94vw, 520px);
+  padding: 10px;
+}
+
+.memorial-photo {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  border: 1px solid rgba(231, 193, 103, .38);
+  background: #080705;
+}
+
+.memorial-photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% top;
+  transform: translateY(-1%) scale(1.08);
+  transform-origin: top center;
+  filter: sepia(.08) contrast(1.05);
+}
+
+.event-card .oscar-title {
+  max-width: 470px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(42px, 11vw, 62px);
+  line-height: .98;
+}
+
+.memorial-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .48), rgba(0, 0, 0, .68)),
+    linear-gradient(90deg, rgba(0, 0, 0, .18), transparent 45%, rgba(0, 0, 0, .16));
+}
+
+.memorial-letter {
+  position: relative;
+  z-index: 1;
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 8vw, 58px) clamp(24px, 7vw, 54px);
+  color: #f4ead8;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(15px, 3.6vw, 19px);
+  font-style: italic;
+  line-height: 1.48;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .95);
+  transform: translateY(64px);
+}
+
+.memorial-letter p { margin: 0 0 17px; }
+
+.memorial-title {
+  color: #f0cf7b;
+  font-size: clamp(24px, 6vw, 34px);
+  line-height: 1.1;
+}
+
+.memorial-signature {
+  margin-top: 7px !important;
+  margin-bottom: 0 !important;
+  color: #f3d990;
+  font-size: clamp(20px, 5vw, 27px);
+}
+
+.shabbat-meal {
+  max-width: 430px;
+  margin: 36px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(220, 178, 80, .3);
+}
+
+.shabbat-meal > p {
+  margin: 0 0 12px;
+  color: #eadfcd;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(17px, 4.5vw, 21px);
+  font-style: italic;
+}
+
+.event-time {
+  width: fit-content;
+  margin: 24px auto 26px;
+  padding: 10px 22px;
+  border-top: 1px solid rgba(231, 193, 103, .36);
+  border-bottom: 1px solid rgba(231, 193, 103, .36);
+  color: #ffe09a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 5vw, 25px);
+  font-weight: 600;
+}
+
+@media (max-width: 430px) {
+  .memorial-card { width: 100%; }
+  .memorial-photo,
+  .memorial-letter { min-height: 820px; }
+  .memorial-letter {
+    padding: 34px 22px;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  .memorial-letter p { margin-bottom: 14px; }
+}
+
+/* =========================================================
+   SYSTEME VISUEL COMMUN — PANNEAUX, LIENS ET FORMULAIRE
+   ========================================================= */
+
+:root {
+  --ui-gold: #d8ad55;
+  --ui-gold-light: #efd58f;
+  --ui-ink: #171108;
+  --ui-panel: rgba(5, 5, 4, .62);
+  --ui-panel-soft: rgba(13, 10, 6, .46);
+  --ui-line: rgba(222, 180, 83, .25);
+  --ui-focus: rgba(239, 213, 143, .82);
+}
+
+/* Les sections sont structurees par l'espace, pas par une boite doree. */
+.paper,
+.event-card,
+.rsvp-card {
+  border: 0 !important;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(4, 4, 3, .68), rgba(17, 12, 6, .54)) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .24) !important;
+  overflow: hidden;
+}
+
+.paper::before,
+.event-card::before,
+.rsvp-card::before {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 1px;
+  margin: 0 auto 28px;
+  background: linear-gradient(90deg, transparent, var(--ui-gold), transparent);
+  opacity: .72;
+}
+
+.tefilines-section,
+.event-section,
+.rsvp-section {
+  padding-top: clamp(30px, 6vw, 52px) !important;
+  padding-bottom: clamp(42px, 8vw, 68px) !important;
+}
+
+.event-card,
+.rsvp-card {
+  padding-top: clamp(32px, 7vw, 48px) !important;
+  padding-bottom: clamp(34px, 7vw, 50px) !important;
+}
+
+.event-rule,
+.rule {
+  opacity: .62;
+}
+
+/* Liens d'action legers : Waze, Maps et futur calendrier. */
+.routes {
+  gap: 8px 18px !important;
+  margin-top: 22px !important;
+}
+
+.routes a,
+.calendar-link,
+a[href$=".ics"] {
+  min-width: 0 !important;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 8px !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--ui-line) !important;
+  border-radius: 0;
+  color: #ead8ad;
+  background: transparent !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px !important;
+  font-weight: 500;
+  letter-spacing: .025em !important;
+  text-decoration: none;
+  text-transform: none !important;
+  transition: color .22s ease, border-color .22s ease, background-color .22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.calendar-link::before,
+a[href$=".ics"]::before {
+  color: var(--ui-gold);
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.calendar-link::before,
+a[href$=".ics"]::before { content: "＋"; }
+
+.routes a:hover,
+.calendar-link:hover,
+a[href$=".ics"]:hover {
+  color: #fff0c4;
+  border-bottom-color: rgba(239, 213, 143, .7) !important;
+  background: rgba(216, 173, 85, .06) !important;
+}
+
+.routes a:focus-visible,
+.calendar-link:focus-visible,
+a[href$=".ics"]:focus-visible,
+.submit-rsvp:focus-visible,
+.field input:focus-visible,
+.field textarea:focus-visible,
+.choice:focus-within {
+  outline: 2px solid var(--ui-focus);
+  outline-offset: 3px;
+}
+
+/* Formulaire RSVP plus doux et plus lisible. */
+.rsvp-card {
+  background: linear-gradient(155deg, rgba(8, 7, 5, .78), rgba(21, 15, 8, .65)) !important;
+}
+
+.rsvp-intro {
+  margin-bottom: 26px !important;
+}
+
+.field {
+  margin: 18px 0 !important;
+}
+
+.field > span,
+fieldset legend {
+  margin-bottom: 9px !important;
+  color: #e2c982 !important;
+  font-size: 11px !important;
+  font-weight: 600;
+  letter-spacing: .1em !important;
+}
+
+.field input,
+.field textarea {
+  min-height: 48px;
+  padding: 13px 15px !important;
+  border: 1px solid rgba(222, 180, 83, .24) !important;
+  border-radius: 11px !important;
+  background: rgba(0, 0, 0, .3) !important;
+  color: #fff6e5 !important;
+  font-size: 17px !important;
+  transition: border-color .22s ease, background-color .22s ease, box-shadow .22s ease;
+}
+
+.field textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: rgba(222, 180, 83, .42) !important;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(239, 213, 143, .72) !important;
+  background: rgba(0, 0, 0, .42) !important;
+  box-shadow: 0 0 0 3px rgba(216, 173, 85, .08);
+}
+
+fieldset {
+  margin: 24px 0 !important;
+}
+
+.choice {
+  min-height: 48px;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 5px 0;
+  padding: 10px 12px !important;
+  border: 0 !important;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color .2s ease, background-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.choice:hover,
+.choice:focus-within {
+  background: rgba(216, 173, 85, .07);
+}
+
+.choice:has(input:checked) {
+  color: #fff0c7;
+  background: rgba(216, 173, 85, .1);
+}
+
+.choice input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 0 0 20px;
+  width: 20px !important;
+  height: 20px !important;
+  display: grid;
+  place-content: center;
+  margin: 0 !important;
+  border: 1px solid rgba(222, 180, 83, .58);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .55);
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.choice input[type="checkbox"]::before {
+  content: "✓";
+  color: #f0ca68;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  transform: scale(0);
+  transition: transform .16s ease;
+}
+
+.choice input[type="checkbox"]:checked {
+  border-color: var(--ui-gold);
+  background: rgba(216, 173, 85, .13);
+}
+
+.choice input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.choice input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--ui-focus);
+  outline-offset: 3px;
+}
+
+.submit-rsvp {
+  min-height: 50px;
+  margin-top: 14px !important;
+  padding: 13px 28px !important;
+  border: 0 !important;
+  border-radius: 999px;
+  color: var(--ui-ink) !important;
+  background: linear-gradient(135deg, #eed181, #c99a3f) !important;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, .25);
+  font-size: 18px !important;
+  font-style: normal !important;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.submit-rsvp:hover {
+  background: linear-gradient(135deg, #f5dda0, #d7aa51) !important;
+  box-shadow: 0 11px 28px rgba(0, 0, 0, .3);
+}
+
+.submit-rsvp:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, .24);
+}
+
+@media (max-width: 600px) {
+  .paper,
+  .event-card,
+  .rsvp-card { border-radius: 14px; }
+
+  .tefilines-section,
+  .event-section,
+  .rsvp-section {
+    padding-top: 24px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .routes {
+    flex-direction: row !important;
+    align-items: stretch !important;
+    justify-content: center;
+    gap: 6px 14px !important;
+  }
+
+  .routes a {
+    width: auto !important;
+    min-height: 46px;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+  }
+
+  .choice {
+    min-height: 50px;
+    font-size: 17px;
+  }
+
+  .submit-rsvp {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+
+/* One continuous portrait texture for the entire invitation. */
+.invitation{
+  background-color:#070605;
+  background-image:linear-gradient(rgba(0,0,0,.16),rgba(0,0,0,.24)),url("background-dorone.jpg");
+  background-position:center top;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+.tefilines-section,.event-section{
+  width:100%;
+  margin:0 auto;
+  padding:22px clamp(16px,4vw,28px);
+}
+.tefilines-section{padding-top:42px;padding-bottom:20px}
+.event-section{padding-top:20px;padding-bottom:20px}
+.paper,.event-card{
+  border-color:rgba(224,182,84,.37);
+  background:rgba(0,0,0,.12);
+  box-shadow:none;
+  backdrop-filter:none;
+}
+footer{margin-top:20px;padding:42px 20px 45px;background:transparent}
+
+/* CORRECTION : une seule image fixe, jamais étirée */
+.invitation{background:none!important;position:relative;z-index:2}
+.invitation-background{display:none;position:fixed;inset:0;z-index:1;overflow:hidden;background:#070605;pointer-events:none}
+.invitation-background img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.invitation-background span{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.10),rgba(0,0,0,.22))}
+.invitation-open .invitation-background{display:block}
+.tefilines-section,.event-section,.rsvp-section{position:relative;z-index:2;width:min(100%,700px);margin:0 auto;padding:28px clamp(15px,4vw,24px)}
+.tefilines-section{padding-top:35px}
+.paper,.event-card,.rsvp-card{background:rgba(2,2,2,.34);border:1px solid rgba(224,182,84,.38);box-shadow:0 16px 45px rgba(0,0,0,.22);backdrop-filter:blur(2px)}
+.paper{padding:clamp(30px,7vw,50px) clamp(15px,5vw,42px)}
+.main-logo{margin-bottom:30px}
+.grandparents{margin-bottom:34px}
+.close-family{margin-bottom:22px}
+.announcement{margin-bottom:18px}
+.event-card{padding:clamp(36px,8vw,55px) clamp(20px,6vw,48px)}
+
+/* RSVP */
+.rsvp-section{padding-top:34px;padding-bottom:55px}
+.rsvp-card{padding:clamp(36px,8vw,55px) clamp(20px,6vw,48px);text-align:center}
+.rsvp-label{margin:0 0 8px;color:var(--gold);font-size:9px;letter-spacing:.22em;text-transform:uppercase}
+.rsvp-card h2{margin:0;color:var(--ivory);font-family:"Cormorant Garamond",serif;font-size:clamp(55px,15vw,76px);font-weight:400;line-height:1}
+.rsvp-intro{max-width:430px;margin:18px auto 30px;color:#dacdb9;font-family:"Cormorant Garamond",serif;font-size:19px;font-style:italic;line-height:1.45}
+.field{display:block;margin:19px 0;text-align:left}.field>span,fieldset legend{display:block;margin-bottom:8px;color:var(--light);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.field input,.field textarea{width:100%;padding:13px 14px;border:1px solid rgba(225,183,86,.35);border-radius:0;outline:0;background:rgba(0,0,0,.34);color:var(--ivory);font:16px "Cormorant Garamond",serif}.field input:focus,.field textarea:focus{border-color:var(--gold)}
+fieldset{margin:25px 0;padding:0;border:0;text-align:left}.choice{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid rgba(222,180,83,.14);color:#eadfcd;font-family:"Cormorant Garamond",serif;font-size:17px}.choice input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--gold)}.choice.absence{color:#cbbda8}
+.submit-rsvp{margin-top:10px;padding:14px 24px;border:1px solid var(--gold);background:rgba(0,0,0,.38);color:var(--ivory);font-family:"Cormorant Garamond",serif;font-size:17px;font-style:italic;cursor:pointer}.rsvp-status{min-height:22px;margin:18px 0 0;font-family:"Cormorant Garamond",serif;font-size:16px}.rsvp-status.success{color:var(--light)}.rsvp-status.error{color:#e2a79b}
+@media(min-width:900px){.invitation-background{left:50%;width:620px;transform:translateX(-50%)}}
+
+/* Le décor reste bloqué ; seuls les cadres défilent. */
+body.invitation-open .invitation-background{
+  display:block!important;
+  position:fixed!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  left:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  height:100dvh!important;
+  transform:none!important;
+  overflow:hidden!important;
+  z-index:0!important;
+}
+body.invitation-open .invitation-background img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  transform:none!important;
+}
+body.invitation-open .invitation{position:relative!important;z-index:2!important;background:transparent!important}
+body.invitation-open footer{position:relative;z-index:2}
+@media(min-width:900px){body.invitation-open .invitation-background{left:50%!important;right:auto!important;width:620px!important;transform:translateX(-50%)!important}}
+
+/* Lisibilité renforcée des informations importantes */
+.paper .date,.event-date{color:#ffe5a2!important;font-size:clamp(17px,4.7vw,22px)!important;font-weight:500!important;letter-spacing:.035em!important;text-transform:none!important;text-shadow:0 2px 10px rgba(0,0,0,.9)}
+.paper address,.event-card address{color:#fff3dc!important;font-size:clamp(14px,3.7vw,17px)!important;font-weight:400!important;line-height:1.65!important;text-shadow:0 2px 9px #000}
+.paper h3,.event-card h3{color:#ffe09a!important;text-shadow:0 2px 12px rgba(0,0,0,.85)}
+
+/* Le fond reste perceptible, mais devient plus doux sous les cadres */
+.paper,.event-card,.rsvp-card{background:linear-gradient(145deg,rgba(3,3,3,.68),rgba(20,14,7,.62))!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;box-shadow:0 18px 55px rgba(0,0,0,.34)!important}
+
+/* Apparition progressive du cadre puis de chaque ligne */
+.reveal{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.paper>*:not(.dorone),.event-card>*,.rsvp-card>*{opacity:0;transform:translateY(12px)}
+.paper.visible>*:not(.dorone),.event-card.visible>*,.rsvp-card.visible>*{animation:contentReveal .65s ease forwards}
+.paper.visible>*:nth-child(1),.event-card.visible>*:nth-child(1),.rsvp-card.visible>*:nth-child(1){animation-delay:.12s}
+.paper.visible>*:nth-child(2),.event-card.visible>*:nth-child(2),.rsvp-card.visible>*:nth-child(2){animation-delay:.22s}
+.paper.visible>*:nth-child(3),.event-card.visible>*:nth-child(3),.rsvp-card.visible>*:nth-child(3){animation-delay:.32s}
+.paper.visible>*:nth-child(4),.event-card.visible>*:nth-child(4),.rsvp-card.visible>*:nth-child(4){animation-delay:.42s}
+.paper.visible>*:nth-child(n+5),.event-card.visible>*:nth-child(n+5),.rsvp-card.visible>*:nth-child(n+5){animation-delay:.52s}
+@keyframes contentReveal{to{opacity:1;transform:none}}
+
+/* Reflet uniquement à l’intérieur des lettres de Dorone */
+.dorone{background-image:linear-gradient(105deg,#9a681b 0%,#d5a94d 30%,#fff1bd 46%,#d5a94d 58%,#9a681b 100%)!important;background-size:230% 100%!important;background-position:100% 50%!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+.paper.visible .dorone{animation:doroneLettersLight 2.1s .62s ease-out forwards}
+@keyframes doroneLettersLight{0%{background-position:100% 50%;filter:brightness(.9)}45%{filter:brightness(1.24) drop-shadow(0 0 5px rgba(255,220,135,.28))}100%{background-position:-70% 50%;filter:brightness(1.03)}}
+
+@media(prefers-reduced-motion:reduce){.paper>*,.event-card>*,.rsvp-card>*{opacity:1!important;transform:none!important;animation:none!important}.dorone{animation:none!important}}
+
+/* Nouvelle séquence : chaque élément possède son propre délai */
+.paper>*:not(.dorone):not(.hebrew-name),.event-card>*,.rsvp-card>*{opacity:0;transform:translateY(14px);animation:none}
+.paper.visible>*:not(.dorone):not(.hebrew-name),.event-card.visible>*,.rsvp-card.visible>*{animation:preciseContentReveal .72s cubic-bezier(.22,1,.36,1) var(--item-delay, .2s) forwards!important}
+@keyframes preciseContentReveal{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+
+/* Dorone apparaît après l’annonce puis reçoit un reflet contenu dans ses lettres */
+.dorone{opacity:0;transform:translateY(16px) scale(.96);clip-path:inset(0 50% 0 50%);background-image:linear-gradient(105deg,#936117 0%,#d4a74b 30%,#fff3c5 47%,#d4a74b 60%,#936117 100%)!important;background-size:240% 100%!important;background-position:100% 50%!important}
+.paper.visible .dorone{animation:doroneRevealAndGlow 2.3s cubic-bezier(.22,1,.36,1) .78s forwards!important}
+@keyframes doroneRevealAndGlow{0%{opacity:0;transform:translateY(16px) scale(.96);clip-path:inset(0 50% 0 50%);background-position:100% 50%;filter:brightness(.85)}28%{opacity:1;transform:translateY(0) scale(1);clip-path:inset(0 0 0 0);filter:brightness(1)}65%{background-position:-40% 50%;filter:brightness(1.28) drop-shadow(0 0 5px rgba(255,220,135,.25))}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0);background-position:-80% 50%;filter:brightness(1.04)}}
+
+/* Le prénom hébreu s’écrit lettre par lettre, de droite à gauche */
+.hebrew-name{display:flex!important;direction:rtl;justify-content:center;align-items:center;min-height:1.5em;opacity:1!important;transform:none!important}
+.hebrew-name span{display:inline-block;opacity:0;transform:translateX(8px) scale(.9);filter:blur(3px)}
+.paper.visible .hebrew-name span{animation:hebrewLetterWrite .46s cubic-bezier(.22,1,.36,1) var(--letter-delay) forwards}
+@keyframes hebrewLetterWrite{0%{opacity:0;transform:translateX(8px) scale(.9);filter:blur(3px)}100%{opacity:1;transform:translateX(0) scale(1);filter:blur(0)}}
+
+@media(prefers-reduced-motion:reduce){.paper>*:not(.dorone):not(.hebrew-name),.event-card>*,.rsvp-card>*,.dorone,.hebrew-name span{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important;animation:none!important}}
+
+/* Sécurité d’affichage : visible par défaut, animé seulement quand le cadre arrive. */
+.paper>*:not(.dorone):not(.hebrew-name),
+.event-card>*,
+.rsvp-card>*{
+  opacity:1;
+  transform:none;
+}
+.paper.visible>*:not(.dorone):not(.hebrew-name),
+.event-card.visible>*,
+.rsvp-card.visible>*{
+  animation:safeItemReveal .7s cubic-bezier(.22,1,.36,1) var(--item-delay,.15s) both!important;
+}
+@keyframes safeItemReveal{
+  from{opacity:0;transform:translateY(13px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Apparition cinema : ouverture d'image et mise au point du projecteur. */
+.paper > *:not(.dorone):not(.hebrew-name),
+.event-card > *,
+.rsvp-card > * {
+  opacity: 0;
+  transform: scale(.985);
+  clip-path: inset(48% 0 48% 0);
+  filter: blur(5px) brightness(1.28) sepia(.18);
+}
+
+.paper.visible > *:not(.dorone):not(.hebrew-name),
+.event-card.visible > *,
+.rsvp-card.visible > * {
+  animation: cinemaFocusReveal 1.15s cubic-bezier(.16, 1, .3, 1) var(--item-delay, .15s) forwards !important;
+}
+
+@keyframes cinemaFocusReveal {
+  0% {
+    opacity: 0;
+    transform: scale(.985);
+    clip-path: inset(48% 0 48% 0);
+    filter: blur(5px) brightness(1.28) sepia(.18);
+  }
+  22% { opacity: .3; }
+  30% { opacity: .18; }
+  42% {
+    opacity: .78;
+    clip-path: inset(18% 0 18% 0);
+    filter: blur(2px) brightness(1.12) sepia(.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(0 0 0 0);
+    filter: blur(0) brightness(1) sepia(0);
+  }
+}
+
+/* Dorone et l'hebreu gardent leurs animations speciales. */
+.paper.visible .dorone {
+  animation: doroneRevealAndGlow 2.3s cubic-bezier(.22, 1, .36, 1) .78s forwards !important;
+}
+
+.paper.visible .hebrew-name span {
+  animation: hebrewLetterWrite .46s cubic-bezier(.22, 1, .36, 1) var(--letter-delay) forwards !important;
+}
+
+/* Dorone apparait maintenant comme tous les autres textes, sans reflet special. */
+.paper .dorone {
+  opacity: 0;
+  transform: scale(.985);
+  clip-path: inset(48% 0 48% 0);
+  filter: blur(5px) brightness(1.28) sepia(.18);
+}
+
+.paper.visible .dorone {
+  animation: cinemaFocusReveal 1.15s cubic-bezier(.16, 1, .3, 1) var(--item-delay, .2s) forwards !important;
+}
+
+/* =========================================================
+   ANIMATION FINALE NETTOYEE
+   Ce bloc neutralise toutes les anciennes animations.
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.paper > *:not(.hebrew-name),
+.event-card > *,
+.rsvp-card > * {
+  opacity: 0;
+  transform: translate3d(0, 7px, 0);
+  clip-path: none;
+  filter: none;
+  transition: none;
+  animation: none !important;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.paper.visible > *:not(.hebrew-name),
+.event-card.visible > *,
+.rsvp-card.visible > * {
+  animation-name: softElegantReveal !important;
+  animation-duration: 850ms !important;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1) !important;
+  animation-delay: var(--item-delay, .15s) !important;
+  animation-fill-mode: both !important;
+  animation-iteration-count: 1 !important;
+}
+
+@keyframes softElegantReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 7px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* L'hebreu conserve exactement son animation lettre par lettre. */
+.hebrew-name {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+.paper.visible .hebrew-name span {
+  animation: hebrewLetterWrite .46s cubic-bezier(.22, 1, .36, 1) var(--letter-delay) forwards !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .paper > *,
+  .event-card > *,
+  .rsvp-card > *,
+  .hebrew-name span {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* DERNIERE REGLE : tout est fixe, sauf les lettres hebraiques. */
+.invitation,
+.invitation-open .invitation,
+.reveal,
+.reveal.visible,
+.paper,
+.paper.visible,
+.event-card,
+.event-card.visible,
+.rsvp-card,
+.rsvp-card.visible,
+.paper > *:not(.hebrew-name),
+.paper.visible > *:not(.hebrew-name),
+.event-card > *,
+.event-card.visible > *,
+.rsvp-card > *,
+.rsvp-card.visible > *,
+.dorone,
+.paper .dorone,
+.paper.visible .dorone {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  animation: none !important;
+  animation-delay: 0s !important;
+}
+
+.hebrew-name {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.hebrew-name span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(8px) scale(.9);
+  filter: blur(3px);
+}
+
+.paper.visible .hebrew-name span {
+  animation: hebrewLetterWrite .46s cubic-bezier(.22, 1, .36, 1) var(--letter-delay) forwards !important;
+}
