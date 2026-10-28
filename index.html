@@ -45,7 +45,34 @@
     </section>
 
   
-  
+    <section class="rsvp-section" id="rsvp">
+      <form class="rsvp-card reveal" id="rsvpForm">
+        <p class="rsvp-label">Votre réponse</p><h2>RSVP</h2>
+      
+        <label class="field"><span>Nom et prénom</span><input type="text" id="guestName" name="nom" autocomplete="name" required></label>
+        <fieldset class="attendance-list">
+          <legend>Assisteront</legend>
+
+        
+      
+
+          <div class="attendance-event" data-event="soiree">
+            <label class="choice event-choice">
+              <input type="checkbox" name="presenceSoiree" value="Oui">
+              <span><strong>La Cérémonie </strong><small>Dimanche 21 février 2027 · 19 h 30</small></span>
+            </label>
+            <div class="guest-counts" hidden>
+              <label class="mini-field"><span>Adultes</span><input type="number" name="adultesSoiree" min="0" max="20" value="1" inputmode="numeric" disabled></label>
+              <label class="mini-field"><span>Enfants</span><input type="number" name="enfantsSoiree" min="0" max="20" value="0" inputmode="numeric" disabled></label>
+            </div>
+          </div>
+        </fieldset>
+        <label class="choice absence-choice"><input type="checkbox" id="notAttending" name="aucunePresence" value="Oui"><span>Ne pourront pas être présents</span></label>
+        <label class="field"><span>Message</span><textarea name="message" rows="4"></textarea></label>
+        <button class="submit-rsvp" type="submit">Valider ma réponse</button>
+        <p class="rsvp-status" id="rsvpStatus" aria-live="polite"></p>
+      </form>
+    </section>
 
     <footer>
       <img src="logo-dorone.png" alt="">
